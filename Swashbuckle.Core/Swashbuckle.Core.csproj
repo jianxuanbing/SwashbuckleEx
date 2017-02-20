@@ -123,6 +123,10 @@
     <Content Include="Nuget\Content\swagger\ui\images\search.png" />
     <Content Include="Nuget\Content\swagger\ui\images\throbber.gif" />
     <Content Include="Nuget\Content\swagger\ui\images\wordnik_api.png" />
+    <EmbeddedResource Include="SwaggerUi\CustomAssets\discoveryUrlSelector.js" />
+    <EmbeddedResource Include="SwaggerUi\CustomAssets\index.html" />
+    <EmbeddedResource Include="SwaggerUi\CustomAssets\screen.css" />
+    <EmbeddedResource Include="SwaggerUi\CustomAssets\typography.css" />
     <EmbeddedResource Include="Nuget\Content\swagger\ui\index.html" />
     <Content Include="Nuget\Content\swagger\ui\lang\ca.js" />
     <Content Include="Nuget\Content\swagger\ui\lang\el.js" />
@@ -161,10 +165,6 @@
     <EmbeddedResource Include="Nuget\Content\swagger\ui\o2c.html" />
     <EmbeddedResource Include="Nuget\Content\swagger\ui\swagger-ui.js" />
     <EmbeddedResource Include="Nuget\Content\swagger\ui\swagger-ui.min.js" />
-    <Content Include="SwaggerUi\CustomAssets\discoveryUrlSelector.js" />
-    <Content Include="SwaggerUi\CustomAssets\index.html" />
-    <Content Include="SwaggerUi\CustomAssets\screen.css" />
-    <Content Include="SwaggerUi\CustomAssets\typography.css" />
     <EmbeddedResource Include="SwaggerUi\Ui\index.html" />
   </ItemGroup>
   <ItemGroup>
@@ -172,7 +172,9 @@
     <Content Include="Nuget\Content\swagger\ui\fonts\DroidSans-Bold.ttf" />
     <Content Include="Nuget\Content\swagger\ui\fonts\DroidSans.ttf" />
     <EmbeddedResource Include="Nuget\Content\swagger\ui\sample.json" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="swagger-ui\dist\**\*.*">

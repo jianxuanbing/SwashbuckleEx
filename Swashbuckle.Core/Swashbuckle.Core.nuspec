@@ -2,19 +2,18 @@
 <package >
   <metadata>
     <id>SwashbuckleEx</id>
-    <version>$version$</version>
+    <version>1.0.2</version>
     <title>SwashbuckleEx - Swagger for WebApi</title>
-    <authors>JCE</authors>
-    <owners>JCE</owners>
+    <authors>简玄冰</authors>
+    <owners>jianxuanbing</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
     <projectUrl>https://github.com/jianxuanbing/SwashbuckleEx.git</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>SwaggerUI WebApi Document,Base in SashbuckleEx,Added Search Api Name And Added Sinicization,Using CacheInfo</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>Copyright 2017</copyright>
-    <tags>Swashbuckle WebApi Swagger document</tags>
+    <tags>Swashbuckle WebApi Swagger document</tags>    
   </metadata>
-  <files>
+  <files>    
     <file src="Nuget\Content\App_Start\SwaggerConfig.cs.pp" target="Content\App_Start" />
     
     <file src="Nuget\Content\swagger\ui\css\ext.css" target="Content\swagger\ui\css" />
