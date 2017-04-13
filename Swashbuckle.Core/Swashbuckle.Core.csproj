@@ -106,72 +106,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Nuget\Content\swagger\ui\css\ext.css" />
-    <Content Include="Nuget\Content\swagger\ui\css\print.css" />
-    <Content Include="Nuget\Content\swagger\ui\css\reset.css" />
-    <Content Include="Nuget\Content\swagger\ui\css\screen.css" />
-    <Content Include="Nuget\Content\swagger\ui\css\style.css" />
-    <Content Include="Nuget\Content\swagger\ui\css\typography.css" />
-    <Content Include="Nuget\Content\swagger\ui\images\collapse.gif" />
-    <Content Include="Nuget\Content\swagger\ui\images\expand.gif" />
-    <Content Include="Nuget\Content\swagger\ui\images\explorer_icons.png" />
-    <Content Include="Nuget\Content\swagger\ui\images\favicon-16x16.png" />
-    <Content Include="Nuget\Content\swagger\ui\images\favicon-32x32.png" />
-    <Content Include="Nuget\Content\swagger\ui\images\favicon.ico" />
-    <Content Include="Nuget\Content\swagger\ui\images\logo_small.png" />
-    <Content Include="Nuget\Content\swagger\ui\images\pet_store_api.png" />
-    <Content Include="Nuget\Content\swagger\ui\images\search.png" />
-    <Content Include="Nuget\Content\swagger\ui\images\throbber.gif" />
-    <Content Include="Nuget\Content\swagger\ui\images\wordnik_api.png" />
     <EmbeddedResource Include="SwaggerUi\CustomAssets\discoveryUrlSelector.js" />
     <EmbeddedResource Include="SwaggerUi\CustomAssets\index.html" />
     <EmbeddedResource Include="SwaggerUi\CustomAssets\screen.css" />
     <EmbeddedResource Include="SwaggerUi\CustomAssets\typography.css" />
-    <EmbeddedResource Include="Nuget\Content\swagger\ui\index.html" />
-    <Content Include="Nuget\Content\swagger\ui\lang\ca.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\el.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\en.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\es.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\fr.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\geo.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\it.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\ja.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\ko-kr.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\lang.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\pl.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\pt.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\ru.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\tr.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\translator.js" />
-    <Content Include="Nuget\Content\swagger\ui\lang\zh-cn.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\backbone-min.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\es5-shim.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\handlebars-4.0.5.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\highlight.9.1.0.pack.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\highlight.9.1.0.pack_extended.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\jquery-1.8.0.min.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\jquery.ba-bbq.min.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\jquery.sieve.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\jquery.sieve.min.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\jquery.slideto.min.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\jquery.wiggle.min.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\js-yaml.min.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\jsoneditor.min.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\lodash.min.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\marked.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\object-assign-pollyfill.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\sanitize-html.min.js" />
-    <Content Include="Nuget\Content\swagger\ui\lib\swagger-oauth.js" />
-    <EmbeddedResource Include="Nuget\Content\swagger\ui\o2c.html" />
-    <EmbeddedResource Include="Nuget\Content\swagger\ui\swagger-ui.js" />
-    <EmbeddedResource Include="Nuget\Content\swagger\ui\swagger-ui.min.js" />
     <EmbeddedResource Include="SwaggerUi\Ui\index.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Nuget\Content\App_Start\SwaggerConfig.cs.pp" />
-    <Content Include="Nuget\Content\swagger\ui\fonts\DroidSans-Bold.ttf" />
-    <Content Include="Nuget\Content\swagger\ui\fonts\DroidSans.ttf" />
-    <EmbeddedResource Include="Nuget\Content\swagger\ui\sample.json" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
