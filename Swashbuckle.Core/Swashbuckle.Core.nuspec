@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SwashbuckleEx</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <title>SwashbuckleEx - Swagger for WebApi</title>
     <authors>简玄冰</authors>
     <owners>jianxuanbing</owners>
@@ -14,70 +14,6 @@
     <tags>Swashbuckle WebApi Swagger document</tags>    
   </metadata>
   <files>    
-    <file src="Nuget\Content\App_Start\SwaggerConfig.cs.pp" target="Content\App_Start" />
-    
-    <file src="Nuget\Content\swagger\ui\css\ext.css" target="Content\swagger\ui\css" />
-    <file src="Nuget\Content\swagger\ui\css\print.css" target="Content\swagger\ui\css" />
-    <file src="Nuget\Content\swagger\ui\css\reset.css" target="Content\swagger\ui\css" />
-    <file src="Nuget\Content\swagger\ui\css\screen.css" target="Content\swagger\ui\css" />
-    <file src="Nuget\Content\swagger\ui\css\style.css" target="Content\swagger\ui\css" />
-    <file src="Nuget\Content\swagger\ui\css\typography.css" target="Content\swagger\ui\css" />
-    
-    <file src="Nuget\Content\swagger\ui\fonts\DroidSans.ttf" target="Content\swagger\ui\fonts" />
-    <file src="Nuget\Content\swagger\ui\fonts\DroidSans-Bold.ttf" target="Content\swagger\ui\fonts" />
-    
-    <file src="Nuget\Content\swagger\ui\images\collapse.gif" target="Content\swagger\ui\images" />
-    <file src="Nuget\Content\swagger\ui\images\expand.gif" target="Content\swagger\ui\images" />
-    <file src="Nuget\Content\swagger\ui\images\explorer_icons.png" target="Content\swagger\ui\images" />
-    <file src="Nuget\Content\swagger\ui\images\favicon-16x16.png" target="Content\swagger\ui\images" />
-    <file src="Nuget\Content\swagger\ui\images\favicon-32x32.png" target="Content\swagger\ui\images" />
-    <file src="Nuget\Content\swagger\ui\images\favicon.ico" target="Content\swagger\ui\images" />
-    <file src="Nuget\Content\swagger\ui\images\logo_small.png" target="Content\swagger\ui\images" />
-    <file src="Nuget\Content\swagger\ui\images\pet_store_api.png" target="Content\swagger\ui\images" />
-    <file src="Nuget\Content\swagger\ui\images\search.png" target="Content\swagger\ui\images" />
-    <file src="Nuget\Content\swagger\ui\images\throbber.gif" target="Content\swagger\ui\images" />
-    <file src="Nuget\Content\swagger\ui\images\wordnik_api.png" target="Content\swagger\ui\images" />
-    
-    <file src="Nuget\Content\swagger\ui\lang\ca.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\el.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\en.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\es.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\fr.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\geo.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\it.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\ja.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\ko-kr.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\lang.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\pl.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\pt.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\ru.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\tr.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\translator.js" target="Content\swagger\ui\lang" />
-    <file src="Nuget\Content\swagger\ui\lang\zh-cn.js" target="Content\swagger\ui\lang" />
-    
-    <file src="Nuget\Content\swagger\ui\lib\backbone-min.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\es5-shim.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\handlebars-4.0.5.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\highlight.9.1.0.pack.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\highlight.9.1.0.pack_extended.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\jquery-1.8.0.min.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\jquery.ba-bbq.min.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\jquery.sieve.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\jquery.sieve.min.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\jquery.slideto.min.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\jquery.wiggle.min.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\js-yaml.min.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\jsoneditor.min.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\lodash.min.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\marked.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\object-assign-pollyfill.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\sanitize-html.min.js" target="Content\swagger\ui\lib" />
-    <file src="Nuget\Content\swagger\ui\lib\swagger-oauth.js" target="Content\swagger\ui\lib" />
-
-    <file src="Nuget\Content\swagger\ui\index.html" target="Content\swagger\ui" />
-    <file src="Nuget\Content\swagger\ui\o2c.html" target="Content\swagger\ui" />
-    <file src="Nuget\Content\swagger\ui\swagger-ui.js" target="Content\swagger\ui" />
-    <file src="Nuget\Content\swagger\ui\swagger-ui.min.js" target="Content\swagger\ui" />
-    
+    <file src="Nuget\Content\App_Start\SwaggerConfig.cs.pp" target="Content\App_Start" />    
   </files>
 </package>
