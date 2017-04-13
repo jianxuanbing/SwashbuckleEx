@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SwashbuckleEx</id>
-    <version>1.0.3</version>
+    <version>1.0.5</version>
     <title>SwashbuckleEx - Swagger for WebApi</title>
     <authors>简玄冰</authors>
     <owners>jianxuanbing</owners>

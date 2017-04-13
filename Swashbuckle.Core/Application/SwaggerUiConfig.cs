@@ -44,9 +44,9 @@ namespace Swashbuckle.Application
 
             // Use some custom versions to support config and extensionless paths
             var thisAssembly = GetType().Assembly;
-            CustomAsset("index", thisAssembly, "Swashbuckle.Core.SwaggerUi.CustomAssets.index.html", isTemplate: true);
-            CustomAsset("css/screen-css", thisAssembly, "Swashbuckle.Core.SwaggerUi.CustomAssets.screen.css");
-            CustomAsset("css/typography-css", thisAssembly, "Swashbuckle.Core.SwaggerUi.CustomAssets.typography.css");
+            CustomAsset("index", thisAssembly, "Swashbuckle.SwaggerUi.CustomAssets.index.html", isTemplate: true);
+            CustomAsset("css/screen-css", thisAssembly, "Swashbuckle.SwaggerUi.CustomAssets.screen.css");
+            CustomAsset("css/typography-css", thisAssembly, "Swashbuckle.SwaggerUi.CustomAssets.typography.css");
             //CustomAsset("index", thisAssembly, "Swashbuckle.Core.SwaggerUi.Ui.index.html", isTemplate: true);
             //CustomAsset("css/screen-css", thisAssembly, "Swashbuckle.Core.SwaggerUi.Ui.screen.css");
             //CustomAsset("css/typography-css", thisAssembly, "Swashbuckle.Core.SwaggerUi.Ui.typography.css");
