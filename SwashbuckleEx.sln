@@ -26,6 +26,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "swagger-ui", "swagger-ui\",
 		SlnRelativePath = "swagger-ui\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swashbuckle.WebHost", "Swashbuckle.WebHost\Swashbuckle.WebHost.csproj", "{31AD7304-29A6-4305-8A86-97516C1CF1C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{B667E34E-F9DA-4F87-87BC-BBAB0FCD9530}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B667E34E-F9DA-4F87-87BC-BBAB0FCD9530}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{B667E34E-F9DA-4F87-87BC-BBAB0FCD9530}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{31AD7304-29A6-4305-8A86-97516C1CF1C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31AD7304-29A6-4305-8A86-97516C1CF1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31AD7304-29A6-4305-8A86-97516C1CF1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31AD7304-29A6-4305-8A86-97516C1CF1C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

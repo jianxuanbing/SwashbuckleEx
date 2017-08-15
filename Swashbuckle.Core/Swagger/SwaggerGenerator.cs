@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Net.Http.Formatting;
 using System.Net.Http;
+using System.Xml.XPath;
+using Swashbuckle.Swagger.XmlComments;
 
 namespace Swashbuckle.Swagger
 {
@@ -66,12 +68,63 @@ namespace Swashbuckle.Swagger
                 securityDefinitions = _options.SecurityDefinitions
             };
 
+            var keys = paths.Keys.ToList();
+            SetTags(swaggerDoc,_options.ModelFilters,keys);
+
             foreach(var filter in _options.DocumentFilters)
             {
                 filter.Apply(swaggerDoc, schemaRegistry, _apiExplorer);
             }
 
             return swaggerDoc;
+        }
+
+        /// <summary>
+        /// 设置标签
+        /// </summary>
+        /// <param name="swaggerDoc"></param>
+        /// <param name="modelFilters"></param>
+        /// <param name="keys"></param>
+        private void SetTags(SwaggerDocument swaggerDoc, IEnumerable<IModelFilter> modelFilters, List<string> keys)
+        {
+            var result=new List<Tag>();
+            var isKeys = keys != null && keys.Count > 0;
+            try
+            {
+                var filter = modelFilters.FirstOrDefault();
+                if (filter != null && filter.XmlNavigator != null)
+                {
+                    string memberXPath = "/doc/members/member[starts-with(@name,'T:')]";
+                    var typeNode = filter.XmlNavigator.Select(memberXPath);
+                    foreach (XPathNavigator item in typeNode)
+                    {
+                        var summaryNode = item.SelectSingleNode("summary");
+                        if (summaryNode != null)
+                        {
+                            var name = item.GetAttribute("name", "");
+                            var nameXPath = "/doc/members/member[starts-with(@name,'M:" + name.Replace("T:", "") + "')]";
+                            var nameXPathNode = filter.XmlNavigator.Select(nameXPath);
+                            name = name.Split('.').Last().Replace("Controller", "");
+                            var summary = summaryNode.ExtractContent();
+                            //if (isKeys)
+                            //{
+                            //    var count = keys.Count(r => r.StartsWith("/" + name + "/"));
+                            //    summary = summary + "(" + count + ")";
+                            //}
+                            if (nameXPathNode.Count > 0)
+                            {
+                                summary = summary + "(" + nameXPathNode.Count + ")";
+                            }
+                            result.Add(new Tag() {name = name, description = summary});
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                //忽略                
+            }
+            swaggerDoc.tags = result;
         }
 
         private IEnumerable<ApiDescription> GetApiDescriptionsFor(string apiVersion)
