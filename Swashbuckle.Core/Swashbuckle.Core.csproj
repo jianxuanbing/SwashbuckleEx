@@ -118,7 +118,7 @@
     <None Include="Swashbuckle.Core.nuspec" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="swagger-ui\dist\**\*.*">
+    <EmbeddedResource Include="..\swagger-ui\**\*.*">
       <LogicalName>%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
       <InProject>false</InProject>
     </EmbeddedResource>
