@@ -109,7 +109,6 @@
     <EmbeddedResource Include="SwaggerUi\CustomAssets\index.html" />
     <EmbeddedResource Include="SwaggerUi\CustomAssets\screen.css" />
     <EmbeddedResource Include="SwaggerUi\CustomAssets\typography.css" />
-    <EmbeddedResource Include="SwaggerUi\Ui\index.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

@@ -45,8 +45,8 @@ namespace Swashbuckle.Application
             // Use some custom versions to support config and extensionless paths
             var thisAssembly = GetType().Assembly;
             CustomAsset("index", thisAssembly, "Swashbuckle.SwaggerUi.CustomAssets.index.html", isTemplate: true);
-            CustomAsset("css/screen-css", thisAssembly, "Swashbuckle.SwaggerUi.CustomAssets.screen.css");
-            CustomAsset("css/typography-css", thisAssembly, "Swashbuckle.SwaggerUi.CustomAssets.typography.css");
+            CustomAsset("css/screen.css", thisAssembly, "Swashbuckle.SwaggerUi.CustomAssets.screen.css");
+            CustomAsset("css/typography.css", thisAssembly, "Swashbuckle.SwaggerUi.CustomAssets.typography.css");
             //CustomAsset("index", thisAssembly, "Swashbuckle.Core.SwaggerUi.Ui.index.html", isTemplate: true);
             //CustomAsset("css/screen-css", thisAssembly, "Swashbuckle.Core.SwaggerUi.Ui.screen.css");
             //CustomAsset("css/typography-css", thisAssembly, "Swashbuckle.Core.SwaggerUi.Ui.typography.css");
@@ -159,11 +159,11 @@ namespace Swashbuckle.Application
             var thisAssembly = GetType().Assembly;
             foreach (var resourceName in thisAssembly.GetManifestResourceNames())
             {
-                if (resourceName.Contains("Swashbuckle.SwaggerUi.Ui")) continue; // original assets only
+                if (resourceName.Contains("Swashbuckle.SwaggerUi.CustomAssets")) continue; // original assets only
 
                 var path = resourceName
-                    .Replace("\\", "/")
-                    .Replace(".", "-"); // extensionless to avoid RUMMFAR
+                    .Replace("\\", "/");
+                    //.Replace(".", "-"); // extensionless to avoid RUMMFAR
 
                 _pathToAssetMap[path] = new EmbeddedAssetDescriptor(thisAssembly, resourceName, path == "index");
             }
