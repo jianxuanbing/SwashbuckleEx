@@ -91,11 +91,14 @@ namespace Swashbuckle.Swagger
             var isKeys = keys != null && keys.Count > 0;
             try
             {
-                var filter = modelFilters.FirstOrDefault();
-                if (filter != null && filter.XmlNavigator != null)
+                string memberXPath = "/doc/members/member[starts-with(@name,'T:')]";
+                foreach (var modelFilter in modelFilters)
                 {
-                    string memberXPath = "/doc/members/member[starts-with(@name,'T:')]";
-                    var typeNode = filter.XmlNavigator.Select(memberXPath);
+                    if (modelFilter.XmlNavigator == null)
+                    {
+                        continue;                        
+                    }
+                    var typeNode = modelFilter.XmlNavigator.Select(memberXPath);
                     foreach (XPathNavigator item in typeNode)
                     {
                         var summaryNode = item.SelectSingleNode("summary");
@@ -103,7 +106,7 @@ namespace Swashbuckle.Swagger
                         {
                             var name = item.GetAttribute("name", "");
                             var nameXPath = "/doc/members/member[starts-with(@name,'M:" + name.Replace("T:", "") + "')]";
-                            var nameXPathNode = filter.XmlNavigator.Select(nameXPath);
+                            var nameXPathNode = modelFilter.XmlNavigator.Select(nameXPath);
                             name = name.Split('.').Last().Replace("Controller", "");
                             var summary = summaryNode.ExtractContent();
                             //if (isKeys)
@@ -115,7 +118,7 @@ namespace Swashbuckle.Swagger
                             {
                                 summary = summary + "(" + nameXPathNode.Count + ")";
                             }
-                            result.Add(new Tag() {name = name, description = summary});
+                            result.Add(new Tag() { name = name, description = summary });
                         }
                     }
                 }

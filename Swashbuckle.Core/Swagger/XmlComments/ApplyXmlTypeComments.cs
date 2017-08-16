@@ -10,24 +10,26 @@ namespace Swashbuckle.Swagger.XmlComments
 
         private readonly XPathDocument _xmlDoc;
 
+        private readonly XPathNavigator _navigator;
+
         public ApplyXmlTypeComments(string filePath)
             : this(new XPathDocument(filePath)) { }
 
         public ApplyXmlTypeComments(XPathDocument xmlDoc)
         {
             _xmlDoc = xmlDoc;
+            _navigator = xmlDoc.CreateNavigator();
+        }
+
+        public XPathNavigator XmlNavigator
+        {
+            get { return _navigator; }
         }
 
         public void Apply(Schema model, ModelFilterContext context)
-        {
-            XPathNavigator navigator;
-            lock (_xmlDoc)
-            {
-                navigator = _xmlDoc.CreateNavigator();
-            }
-
+        {            
             var commentId = XmlCommentsIdHelper.GetCommentIdForType(context.SystemType);
-            var typeNode = navigator.SelectSingleNode(string.Format(MemberXPath, commentId));
+            var typeNode = _navigator.SelectSingleNode(string.Format(MemberXPath, commentId));
 
             if (typeNode != null)
             {
@@ -43,7 +45,7 @@ namespace Swashbuckle.Swagger.XmlComments
                     var jsonProperty = context.JsonObjectContract.Properties[entry.Key];
                     if (jsonProperty == null) continue;
 
-                    ApplyPropertyComments(navigator, entry.Value, jsonProperty.PropertyInfo());
+                    ApplyPropertyComments(_navigator, entry.Value, jsonProperty.PropertyInfo());
                 }
             }
         }

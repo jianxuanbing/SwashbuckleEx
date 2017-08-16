@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Xml.XPath;
 using Newtonsoft.Json.Serialization;
 
 namespace Swashbuckle.Swagger
 {
     public interface IModelFilter
     {
+        XPathNavigator XmlNavigator { get; }
         void Apply(Schema model, ModelFilterContext context);
     }
 
