@@ -115,6 +115,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Swashbuckle.Core.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="swagger-ui\dist\**\*.*">

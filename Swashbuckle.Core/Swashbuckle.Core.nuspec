@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>SwashbuckleEx</id>
-    <version>1.0.5</version>
+    <id>SwashbuckleEx.Core</id>
+    <version>$version$</version>
     <title>SwashbuckleEx - Swagger for WebApi</title>
     <authors>简玄冰</authors>
     <owners>jianxuanbing</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
-    <projectUrl>https://github.com/jianxuanbing/SwashbuckleEx.git</projectUrl>
+    <projectUrl>https://github.com/jianxuanbing/SwashbuckleEx</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>SwaggerUI WebApi Document,Base in SashbuckleEx,Added Search Api Name And Added Sinicization,Using CacheInfo</description>
     <copyright>Copyright 2017</copyright>
-    <tags>Swashbuckle WebApi Swagger document</tags>    
-  </metadata>
-  <files>    
-    <file src="Nuget\Content\App_Start\SwaggerConfig.cs.pp" target="Content\App_Start" />    
-  </files>
+    <tags>Swashbuckle WebApi Swagger document</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebApi.Core" version="5.2.3" />
+    </dependencies>
+  </metadata>  
 </package>

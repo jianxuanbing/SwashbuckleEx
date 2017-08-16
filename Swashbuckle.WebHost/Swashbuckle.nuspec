@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SwashbuckleEx</id>
+    <version>$version$</version>
+    <title>SwashbuckleEx - Swagger for WebApi</title>
+    <authors>简玄冰</authors>
+    <owners>jianxuanbing</owners>
+    <licenseUrl>http://opensource.org/licenses/BSD-3-Clause</licenseUrl>
+    <projectUrl>https://github.com/jianxuanbing/SwashbuckleEx</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SwaggerUI WebApi Document,Base in SashbuckleEx,Added Search Api Name And Added Sinicization,Using CacheInfo</description>    
+    <copyright>Copyright 2017</copyright>
+    <tags>Swashbuckle Swagger SwaggerUi WebApi AspNet AspNetWebApi Docs</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebApi.WebHost" version="5.2.3"></dependency>
+      <dependency id="WebActivatorEx" version="2.2.0"></dependency>
+      <dependency id="SwashbuckleEx.Core" version="1.0.0.6"></dependency>
+    </dependencies>
+  </metadata>  
+</package>
