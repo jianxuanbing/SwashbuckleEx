@@ -30,6 +30,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swashbuckle.WebHost", "Swas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwashbuckleEx.WebApiTest", "SwashbuckleEx.WebApiTest\SwashbuckleEx.WebApiTest.csproj", "{42BFF3DE-68B0-4DD0-96E1-2BF29975F522}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B0A2397D-7BD8-4C4B-B49D-8BF47EAD27DD}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
