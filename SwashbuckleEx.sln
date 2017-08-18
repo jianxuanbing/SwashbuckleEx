@@ -28,6 +28,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "swagger-ui", "swagger-ui\",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swashbuckle.WebHost", "Swashbuckle.WebHost\Swashbuckle.WebHost.csproj", "{31AD7304-29A6-4305-8A86-97516C1CF1C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwashbuckleEx.WebApiTest", "SwashbuckleEx.WebApiTest\SwashbuckleEx.WebApiTest.csproj", "{42BFF3DE-68B0-4DD0-96E1-2BF29975F522}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{31AD7304-29A6-4305-8A86-97516C1CF1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31AD7304-29A6-4305-8A86-97516C1CF1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31AD7304-29A6-4305-8A86-97516C1CF1C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42BFF3DE-68B0-4DD0-96E1-2BF29975F522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42BFF3DE-68B0-4DD0-96E1-2BF29975F522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42BFF3DE-68B0-4DD0-96E1-2BF29975F522}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42BFF3DE-68B0-4DD0-96E1-2BF29975F522}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
