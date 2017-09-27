@@ -17,5 +17,8 @@
       <dependency id="WebActivatorEx" version="2.2.0"></dependency>
       <dependency id="SwashbuckleEx.Core" version="1.0.8.0"></dependency>
     </dependencies>
-  </metadata>  
+  </metadata>
+  <files>
+    <file src="Nuget\Content\App_Start\SwaggerConfig.cs.pp" target="Content\App_Start" />
+  </files>
 </package>
