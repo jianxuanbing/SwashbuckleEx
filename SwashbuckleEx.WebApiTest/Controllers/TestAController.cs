@@ -20,5 +20,16 @@ namespace SwashbuckleEx.WebApiTest.Controllers
         {
             return Guid.NewGuid();
         }
+
+        /// <summary>
+        /// 获取结果
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public string GetResult(string id)
+        {
+            return id;
+        }
     }
 }
