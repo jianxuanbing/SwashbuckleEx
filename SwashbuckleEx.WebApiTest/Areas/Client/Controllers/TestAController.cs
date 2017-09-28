@@ -4,16 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 
-namespace SwashbuckleEx.WebApiTest.Controllers.Admin
+namespace SwashbuckleEx.WebApiTest.Areas.Client.Controllers
 {
-    public class TestController:ApiController
+    public class TestAController:ApiController
     {
         /// <summary>
-        /// 获取ID
+        /// 获取客户端Guid
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public Guid GetTestId()
+        [AllowAnonymous]
+        public Guid GetGuid()
         {
             return Guid.NewGuid();
         }

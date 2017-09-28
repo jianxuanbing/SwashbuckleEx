@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace SwashbuckleEx.WebApiTest.Controllers
@@ -10,16 +9,16 @@ namespace SwashbuckleEx.WebApiTest.Controllers
     /// <summary>
     /// 测试控制器
     /// </summary>
-    public class TestController : ApiController
+    public class TestAController:ApiController
     {
         /// <summary>
-        /// 获取ID
+        /// 获取通用ID
         /// </summary>
-        /// <param name="id">系统编号</param>
         /// <returns></returns>
-        public string Get(string id)
+        [HttpGet]
+        public Guid GetId()
         {
-            return id;
+            return Guid.NewGuid();
         }
     }
 }

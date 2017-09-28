@@ -19,11 +19,11 @@ namespace SwashbuckleEx.WebApiTest
             //AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             // WebApi支持Area
-            GlobalConfiguration.Configuration.Services.Replace(typeof(IApiExplorer),
-                new AreaApiExplorer(GlobalConfiguration.Configuration.Services.GetApiExplorer(),
-                    GlobalConfiguration.Configuration));
-            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerSelector),
-                new ClassifiedHttpControllerSelector(GlobalConfiguration.Configuration));
+            //GlobalConfiguration.Configuration.Services.Replace(typeof(IApiExplorer),
+            //    new AreaApiExplorer(GlobalConfiguration.Configuration.Services.GetApiExplorer(),
+            //        GlobalConfiguration.Configuration));
+            //GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerSelector),
+            //    new AreaHttpControllerSelector(GlobalConfiguration.Configuration));
         }
     }
 }

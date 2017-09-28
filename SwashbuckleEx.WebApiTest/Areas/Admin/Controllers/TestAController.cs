@@ -9,7 +9,7 @@ namespace SwashbuckleEx.WebApiTest.Areas.Admin.Controllers
     public class TestAController:ApiController
     {
         /// <summary>
-        /// 获取Guid
+        /// 获取后台Guid
         /// </summary>
         /// <returns></returns>
         [HttpGet]
