@@ -137,15 +137,17 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\TestController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TestAController.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
     <Compile Include="Areas\Extensions.cs" />
+    <Compile Include="Controllers\Admin\TestController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Selectors\AreaHttpControllerSelector.cs" />
+    <Compile Include="Selectors\ClassifiedHttpControllerSelector.cs" />
     <Compile Include="Selectors\ControllerTypeSpecifications.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -161,6 +163,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Client\Controllers\" />
+    <Folder Include="Controllers\Client\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
