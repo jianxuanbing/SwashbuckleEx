@@ -79,14 +79,18 @@ namespace Swashbuckle.Swagger
             if (SwaggerEnabledConfiguration.DiscoveryPaths != null &&
                 SwaggerEnabledConfiguration.DiscoveryPaths.Any())
             {
-                var path = SwaggerEnabledConfiguration.DiscoveryPaths.FirstOrDefault();
-                if (!string.IsNullOrEmpty(path))
-                {
-                    info.docPath = path;
-                }
+                
                 foreach (var version in swaggerDoc.muiltVersion)
                 {
-                    
+                    var path = SwaggerEnabledConfiguration.DiscoveryPaths.FirstOrDefault(x=>x.Contains(version.version));
+                    if (!string.IsNullOrEmpty(path))
+                    {
+                        version.docPath = path;
+                        if (version.version == swaggerDoc.info.version)
+                        {
+                            swaggerDoc.info.docPath = path;
+                        }
+                    }                    
                 }
             }
 
