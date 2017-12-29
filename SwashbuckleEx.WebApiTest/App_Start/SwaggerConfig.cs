@@ -23,7 +23,16 @@ namespace SwashbuckleEx.WebApiTest
                     //c.SingleApiVersion("v1", "Test.WebApi");                    
                     c.MultipleApiVersions(ResolveAreasSupportByRouteConstraint, (vc) =>
                     {
-                        vc.Version("Admin", "Admin API");
+                        vc.Version("Admin", "中文后台 API").Description("这个用于测试一下备注信息").TermsOfService("www.baidu.com").License(
+                            x =>
+                            {
+                                x.Name("jian玄冰");
+                                x.Url("www.baidu.2333");
+                            })
+                            .Contact(x =>
+                            {
+                                x.Name("2017").Email("jianxuanhuo1@126.com").Url("www.baidu.xxxx");
+                            });
                         vc.Version("v1", "Common API");
                         
                         vc.Version("Client", "Client API");                        

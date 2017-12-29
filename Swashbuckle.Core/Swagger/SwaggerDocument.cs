@@ -37,6 +37,11 @@ namespace Swashbuckle.Swagger
         public ExternalDocs externalDocs;
 
         public Dictionary<string, object> vendorExtensions = new Dictionary<string, object>();
+
+        /// <summary>
+        /// 多版本
+        /// </summary>
+        public IList<Info> muiltVersion;
     }
 
     public class Info
@@ -48,6 +53,11 @@ namespace Swashbuckle.Swagger
         public string description;
 
         public string termsOfService;
+
+        /// <summary>
+        /// 文档路径
+        /// </summary>
+        public string docPath;
 
         public Contact contact;
 
