@@ -6,7 +6,7 @@ namespace SwashbuckleEx.WebApiTest.Areas.Admin.Controllers
     /// <summary>
     /// 测试 相关API
     /// </summary>
-    public class TestController:ApiController
+    public class TestAController:ApiController
     {
         /// <summary>
         /// 获取Guid
