@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\AreaApiExplorer.cs" />
     <Compile Include="Application\ContactBuilder.cs" />
     <Compile Include="Application\HttpConfigurationExtensions.cs" />
     <Compile Include="Application\HttpRouteDirectionConstraint.cs" />

@@ -7,6 +7,7 @@ using Newtonsoft.Json.Serialization;
 using System.Net.Http.Formatting;
 using System.Net.Http;
 using System.Xml.XPath;
+using Swashbuckle.Application;
 using Swashbuckle.Swagger.XmlComments;
 
 namespace Swashbuckle.Swagger
@@ -47,6 +48,7 @@ namespace Swashbuckle.Swagger
             _apiVersions.TryGetValue(apiVersion, out info);
             if (info == null)
                 throw new UnknownApiVersion(apiVersion);
+            
 
             var paths = GetApiDescriptionsFor(apiVersion)
                 .Where(apiDesc => !(_options.IgnoreObsoleteActions && apiDesc.IsObsolete()))
@@ -65,8 +67,32 @@ namespace Swashbuckle.Swagger
                 schemes = (_options.Schemes != null) ? _options.Schemes.ToList() : new[] { rootUri.Scheme }.ToList(),
                 paths = paths,
                 definitions = schemaRegistry.Definitions,
-                securityDefinitions = _options.SecurityDefinitions
+                securityDefinitions = _options.SecurityDefinitions                
             };
+
+            swaggerDoc.muiltVersion=new List<Info>();
+            foreach (var version in _apiVersions)
+            {
+                swaggerDoc.muiltVersion.Add(version.Value);
+            }
+
+            if (SwaggerEnabledConfiguration.DiscoveryPaths != null &&
+                SwaggerEnabledConfiguration.DiscoveryPaths.Any())
+            {
+                
+                foreach (var version in swaggerDoc.muiltVersion)
+                {
+                    var path = SwaggerEnabledConfiguration.DiscoveryPaths.FirstOrDefault(x=>x.Contains(version.version));
+                    if (!string.IsNullOrEmpty(path))
+                    {
+                        version.docPath = path;
+                        if (version.version == swaggerDoc.info.version)
+                        {
+                            swaggerDoc.info.docPath = path;
+                        }
+                    }                    
+                }
+            }
 
             var keys = paths.Keys.ToList();
             SetTags(swaggerDoc,_options.ModelFilters,keys);

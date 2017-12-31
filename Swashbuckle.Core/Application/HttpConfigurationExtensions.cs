@@ -12,7 +12,7 @@ namespace Swashbuckle.Application
 {
     public static class HttpConfigurationExtensions
     {
-        private static readonly string DefaultRouteTemplate = "swagger/docs/{apiVersion}";
+        private static readonly string DefaultRouteTemplate = "swagger/docs/{apiVersion}";                
 
         public static SwaggerEnabledConfiguration EnableSwagger(
             this HttpConfiguration httpConfig,
@@ -36,6 +36,7 @@ namespace Swashbuckle.Application
                 constraints: new { apiVersion = @".+" },
                 handler: new SwaggerDocsHandler(config)
             );
+            
 
             return new SwaggerEnabledConfiguration(
                 httpConfig,
@@ -61,6 +62,8 @@ namespace Swashbuckle.Application
         private readonly Func<HttpRequestMessage, string> _rootUrlResolver;
         private readonly IEnumerable<string> _discoveryPaths;
 
+        internal static IEnumerable<string> DiscoveryPaths;
+
         public SwaggerEnabledConfiguration(
             HttpConfiguration httpConfig,
             Func<HttpRequestMessage, string> rootUrlResolver,
@@ -69,6 +72,7 @@ namespace Swashbuckle.Application
             _httpConfig = httpConfig;
             _rootUrlResolver = rootUrlResolver;
             _discoveryPaths = discoveryPaths;
+            DiscoveryPaths = _discoveryPaths;
         }
 
         public void EnableSwaggerUi(Action<SwaggerUiConfig> configure = null)
@@ -90,7 +94,7 @@ namespace Swashbuckle.Application
                 constraints: new { assetPath = @".+" },
                 handler: new SwaggerUiHandler(config)
             );
-
+            
             if (routeTemplate == DefaultRouteTemplate)
             {
                 _httpConfig.Routes.MapHttpRoute(

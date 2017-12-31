@@ -2,7 +2,7 @@
 
 SwashbuckleEx is Modify SwaggerUI Info
 
-# How To User?
+# How To Useage?
 You should set `Web.config`
 ```xml
 <system.webServer>

@@ -1,15 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Http;
 
-namespace SwashbuckleEx.WebApiTest.Areas.Admin.Controllers
+namespace SwashbuckleEx.WebApiTest.Areas.Client.Controllers
 {
-    /// <summary>
-    /// 测试 相关API
-    /// </summary>
     public class TestAController:ApiController
     {
         /// <summary>
-        /// 获取后台Guid
+        /// 获取客户端Guid
         /// </summary>
         /// <returns></returns>
         [HttpGet]
