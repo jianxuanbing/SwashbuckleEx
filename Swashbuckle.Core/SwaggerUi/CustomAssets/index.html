@@ -125,11 +125,11 @@
         },
         docExpansion: swashbuckleConfig.docExpansion,
         //模块排序
-        apisSorter:"sortWeight",
+        apisSorter: "alpha",
         //模块内部方法排序
-        operationsSorter:"sortWeight",
+        operationsSorter: "method",
         //方法响应排序
-        operationResponsesSorter:"sortWeight",
+        operationResponsesSorter: "sortWeight",
         jsonEditor: false,
         defaultModelRendering: 'schema',
         showRequestHeaders: false,
@@ -141,7 +141,7 @@
           window.swaggerUi.options.validatorUrl = window.swashbuckleConfig.validatorUrl;
 
 
-      function addApiKeyAuthorization(){
+      function addApiKeyAuthorization() {          
         var key=$("#input_apiKey")[0].value;
         if (key && key.trim() != "") {
             if (swashbuckleConfig.apiKeyIn === "query") {
@@ -178,7 +178,7 @@
     <a id="logo" href="#"><img class="logo__img" alt="swagger" height="30" width="30" src="images/logo_small.png" /><span class="logo__title">swagger</span></a>
     <form id='api_selector'>
       <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
-        <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text" /></div>
+      <div id='auth_container'></div>
       <div class='input'><a id="explore" class="header__btn" href="#" data-sw-translate>Explore</a></div>
       <div class="input">
         <select id="language">

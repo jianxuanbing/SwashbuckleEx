@@ -37,7 +37,13 @@ namespace SwashbuckleEx.WebApiTest
                         
                         vc.Version("Client", "Client API");                        
                     });
-                    c.ApiKey("Authorization").Description("OAuth2 Auth").In("header").Name("Bearer ");
+                    c.ApiKey("Authorization").Description("OAuth2 Auth").In("header").Name("Authorization");
+                    c.OAuth2("jwt").AuthorizationUrl("http://localhost:9460/oauth/token")
+                        .TokenUrl("http://localhost:9460/oauth/token").Scopes(
+                            x =>
+                            {
+                                x.Add("scope", "admin");
+                            });
                     c.DocumentFilter<SwaggerAreasSupportDocumentFilter>();
                     c.IncludeXmlComments(string.Format("{0}/bin/SwashbuckleEx.WebApiTest.XML", AppDomain.CurrentDomain.BaseDirectory));
                 })
