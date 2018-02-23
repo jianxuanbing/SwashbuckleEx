@@ -59,6 +59,12 @@ namespace Swashbuckle.Swagger
         /// </summary>
         public string docPath;
 
+        /// <summary>
+        /// 是否默认路由
+        /// </summary>
+        [JsonIgnore]
+        internal bool isDefaultRoute;
+
         public Contact contact;
 
         public License license;

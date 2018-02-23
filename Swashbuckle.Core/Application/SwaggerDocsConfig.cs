@@ -70,7 +70,7 @@ namespace Swashbuckle.Application
         {
             _versionSupportResolver = null;
             _versionInfoBuilder = new VersionInfoBuilder();
-            return _versionInfoBuilder.Version(version, title);
+            return _versionInfoBuilder.Version(version, title, true);
         }
 
         public void MultipleApiVersions(

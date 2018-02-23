@@ -4,10 +4,18 @@ using System.Web.Http;
 namespace SwashbuckleEx.WebApiTest.Areas.Admin.Controllers
 {
     /// <summary>
-    /// 测试 相关API
+    /// 后台测试 相关API
     /// </summary>
     public class TestAController:ApiController
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public TestAController()
+        {
+            
+        }
+
         /// <summary>
         /// 获取后台Guid
         /// </summary>

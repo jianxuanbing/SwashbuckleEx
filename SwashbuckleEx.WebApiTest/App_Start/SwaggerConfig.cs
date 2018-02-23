@@ -33,7 +33,7 @@ namespace SwashbuckleEx.WebApiTest
                             {
                                 x.Name("2017").Email("jianxuanhuo1@126.com").Url("www.baidu.xxxx");
                             });
-                        vc.Version("v1", "Common API");
+                        vc.Version("v1", "Common API",true);
                         
                         vc.Version("Client", "Client API");                        
                     });

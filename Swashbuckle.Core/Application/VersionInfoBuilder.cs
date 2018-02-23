@@ -21,6 +21,13 @@ namespace Swashbuckle.Application
             return infoBuilder;
         }
 
+        public InfoBuilder Version(string version, string title, bool isDefaultRoute)
+        {
+            var infoBuilder = new InfoBuilder(version, title, isDefaultRoute);
+            _versionInfos[version] = infoBuilder;
+            return infoBuilder;
+        }
+
         public IDictionary<string, Info> Build()
         {
             return _versionInfos.ToDictionary(entry => entry.Key, entry => entry.Value.Build());

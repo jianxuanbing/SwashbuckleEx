@@ -9,6 +9,10 @@ namespace Swashbuckle.Application
         private string _title;
         private string _description;
         private string _termsOfService;
+        /// <summary>
+        /// 是否默认路由
+        /// </summary>
+        private bool _isDefaultRoute;
         private readonly ContactBuilder _contactBuilder = new ContactBuilder();
         private readonly LicenseBuilder _licenseBuilder = new LicenseBuilder();
 
@@ -16,6 +20,11 @@ namespace Swashbuckle.Application
         {
             _version = version;
             _title = title;
+        }
+
+        public InfoBuilder(string version, string title, bool isDefualt):this(version,title)
+        {
+            _isDefaultRoute = isDefualt;
         }
 
         public InfoBuilder Description(string description)
@@ -51,7 +60,8 @@ namespace Swashbuckle.Application
                 description = _description,
                 termsOfService = _termsOfService,
                 contact = _contactBuilder.Build(),
-                license = _licenseBuilder.Build()
+                license = _licenseBuilder.Build(),
+                isDefaultRoute = _isDefaultRoute
             };
         }
     }

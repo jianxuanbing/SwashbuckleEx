@@ -114,7 +114,7 @@ namespace Swashbuckle.Swagger
         private void SetTags(SwaggerDocument swaggerDoc, IEnumerable<IModelFilter> modelFilters, List<string> keys)
         {
             var result=new List<Tag>();
-            var isKeys = keys != null && keys.Count > 0;
+            var isKeys = keys != null && keys.Count > 0;            
             try
             {
                 string memberXPath = "/doc/members/member[starts-with(@name,'T:')]";
@@ -131,18 +131,42 @@ namespace Swashbuckle.Swagger
                         if (summaryNode != null)
                         {
                             var name = item.GetAttribute("name", "");
-                            var nameXPath = "/doc/members/member[starts-with(@name,'M:" + name.Replace("T:", "") + "')]";
+                            if (!swaggerDoc.info.isDefaultRoute)
+                            {
+                                if (!name.Contains("Areas") || !name.Contains("Controllers"))
+                                {
+                                    continue;
+                                }
+                            }
+                            else
+                            {
+                                if (name.Contains("Areas"))
+                                {
+                                    continue;
+                                }
+                            }
+                            var nameXPath = "/doc/members/member[starts-with(@name,'M:" + name.Replace("T:", "") + "')]";                            
                             var nameXPathNode = modelFilter.XmlNavigator.Select(nameXPath);
+
+                            // 处理构造函数导致接口数量不正确问题
+                            var ctorXPath = "/doc/members/member[starts-with(@name,'M:" + name.Replace("T:", "") +
+                                            ".#ctor')]";
+                            var ctorXPathNode = modelFilter.XmlNavigator.Select(ctorXPath);
                             name = name.Split('.').Last().Replace("Controller", "");
+
                             var summary = summaryNode.ExtractContent();
                             //if (isKeys)
                             //{
                             //    var count = keys.Count(r => r.StartsWith("/" + name + "/"));
                             //    summary = summary + "(" + count + ")";
                             //}
+
+                            
                             if (nameXPathNode.Count > 0)
                             {
-                                summary = summary + "(" + nameXPathNode.Count + ")";
+                                summary = ctorXPathNode.Count > 0
+                                    ? summary + "(" + (nameXPathNode.Count - ctorXPathNode.Count) + ")"
+                                    : summary + "(" + nameXPathNode.Count + ")";
                             }
                             result.Add(new Tag() { name = name, description = summary });
                         }
