@@ -33,7 +33,7 @@ namespace Swashbuckle.Application
                 { "%(OAuth2ClientSecret)", "" },
                 { "%(OAuth2Realm)", "" },
                 { "%(OAuth2AppName)", "" },
-                { "%(OAuth2ScopeSeperator)", " " },
+                { "%(OAuth2ScopeSeperator)", "," },
                 { "%(OAuth2AdditionalQueryStringParams)", "{}" },
 				{ "%(ApiKeyName)", "api_key" },
 				{ "%(ApiKeyIn)", "query" }
