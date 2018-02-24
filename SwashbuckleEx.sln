@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwashbuckleEx.WebApiTest", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B0A2397D-7BD8-4C4B-B49D-8BF47EAD27DD}"
 	ProjectSection(SolutionItems) = preProject
+		Publish.bat = Publish.bat
+		Publish.SwashbuckleEx.bat = Publish.SwashbuckleEx.bat
 		README.md = README.md
 	EndProjectSection
 EndProject

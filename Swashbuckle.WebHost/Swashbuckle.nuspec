@@ -15,7 +15,7 @@
     <dependencies>
       <dependency id="Microsoft.AspNet.WebApi.WebHost" version="5.2.3"></dependency>
       <dependency id="WebActivatorEx" version="2.2.0"></dependency>
-      <dependency id="SwashbuckleEx.Core" version="1.1.0.0"></dependency>
+      <dependency id="SwashbuckleEx.Core" version="1.1.1"></dependency>
     </dependencies>
   </metadata>
   <files>
