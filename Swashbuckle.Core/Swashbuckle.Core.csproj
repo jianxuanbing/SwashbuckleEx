@@ -78,6 +78,7 @@
     <Compile Include="Swagger\Annotations\ApplySwaggerOperationFilterAttributes.cs" />
     <Compile Include="Swagger\Annotations\ApplySwaggerResponseAttributes.cs" />
     <Compile Include="Swagger\Annotations\ApplySwaggerSchemaFilterAttributes.cs" />
+    <Compile Include="Swagger\Annotations\ApiAuthorAttribute.cs" />
     <Compile Include="Swagger\Annotations\SwaggerOperationAttribute.cs" />
     <Compile Include="Swagger\Annotations\SwaggerOperationFilterAttribute.cs" />
     <Compile Include="Swagger\Annotations\SwaggerResponseAttribute.cs" />

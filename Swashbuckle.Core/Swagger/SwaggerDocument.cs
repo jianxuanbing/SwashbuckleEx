@@ -116,7 +116,7 @@ namespace Swashbuckle.Swagger
     {
         public IList<string> tags;
 
-        public string summary;
+        public string summary { get; set; }
 
         public string description;
 

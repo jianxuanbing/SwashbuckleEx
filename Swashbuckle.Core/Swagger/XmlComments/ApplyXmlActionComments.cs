@@ -1,9 +1,11 @@
 ﻿using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
+using Swashbuckle.Swagger.Annotations;
 
 namespace Swashbuckle.Swagger.XmlComments
 {
@@ -47,6 +49,12 @@ namespace Swashbuckle.Swagger.XmlComments
             var remarksNode = methodNode.SelectSingleNode(RemarksXPath);
             if (remarksNode != null)
                 operation.description = remarksNode.ExtractContent();
+
+            var authorInfo = apiDescription.GetControllerAndActionAttributes<ApiAuthorAttribute>().FirstOrDefault();
+            if (authorInfo != null)
+            {
+                operation.summary += $"【{authorInfo.Name},{authorInfo.Time},{authorInfo.GetStatusName()}】";
+            }
 
             ApplyParamComments(operation, methodNode, reflectedActionDescriptor.MethodInfo);
 
