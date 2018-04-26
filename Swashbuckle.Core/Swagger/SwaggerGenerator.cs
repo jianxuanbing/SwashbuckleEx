@@ -137,6 +137,14 @@ namespace Swashbuckle.Swagger
                                 {
                                     continue;
                                 }
+
+                                var names = name.Split('.');
+                                var areaIndex = names.ToList().IndexOf("Areas") + 1;
+                                if (!names[areaIndex].Equals(swaggerDoc.info.version,
+                                    StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    continue;
+                                }
                             }
                             else
                             {
@@ -152,23 +160,41 @@ namespace Swashbuckle.Swagger
                             var ctorXPath = "/doc/members/member[starts-with(@name,'M:" + name.Replace("T:", "") +
                                             ".#ctor')]";
                             var ctorXPathNode = modelFilter.XmlNavigator.Select(ctorXPath);
-                            name = name.Split('.').Last().Replace("Controller", "");
 
-                            var summary = summaryNode.ExtractContent();
-                            //if (isKeys)
-                            //{
-                            //    var count = keys.Count(r => r.StartsWith("/" + name + "/"));
-                            //    summary = summary + "(" + count + ")";
-                            //}
+                            if (name.Contains("Controllers"))
+                            {
+
+                                name = name.Split('.').Last().Replace("Controller", "");
+
+                                var summary = summaryNode.ExtractContent();
+
+                                if (nameXPathNode.Count > 0)
+                                {
+                                    summary = ctorXPathNode.Count > 0
+                                        ? summary + "(" + (nameXPathNode.Count - ctorXPathNode.Count) + ")"
+                                        : summary + "(" + nameXPathNode.Count + ")";
+                                }
+                                result.Add(new Tag() { name = name, description = summary });
+                            }
+
+                            // 只处理控制器注释标签
+                            //name = name.Split('.').Last().Replace("Controller", "");
+
+                            //var summary = summaryNode.ExtractContent();
+                            ////if (isKeys)
+                            ////{
+                            ////    var count = keys.Count(r => r.StartsWith("/" + name + "/"));
+                            ////    summary = summary + "(" + count + ")";
+                            ////}
 
                             
-                            if (nameXPathNode.Count > 0)
-                            {
-                                summary = ctorXPathNode.Count > 0
-                                    ? summary + "(" + (nameXPathNode.Count - ctorXPathNode.Count) + ")"
-                                    : summary + "(" + nameXPathNode.Count + ")";
-                            }
-                            result.Add(new Tag() { name = name, description = summary });
+                            //if (nameXPathNode.Count > 0)
+                            //{
+                            //    summary = ctorXPathNode.Count > 0
+                            //        ? summary + "(" + (nameXPathNode.Count - ctorXPathNode.Count) + ")"
+                            //        : summary + "(" + nameXPathNode.Count + ")";
+                            //}
+                            //result.Add(new Tag() { name = name, description = summary });
                         }
                     }
                 }
