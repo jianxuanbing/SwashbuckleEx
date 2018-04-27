@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -43,7 +43,7 @@
       } else {
         //url = "http://"+window.location.host+"/sample.json";
         url = "http://localhost:9460/swagger/docs/Admin";
-      }
+      }      
 
       hljs.configure({
         highlightSizeThreshold: 5000
@@ -106,6 +106,15 @@
         showRequestHeaders: false,
         showOperationIds: false
       });
+
+      window.swaggerUi.changApiKey=function(value){
+        var key=value;
+        if(key&&key.trim()!=""){
+          var apiKeyAuth=new SwaggerClient.ApiKeyAuthorization("Authorization",key,"header");
+          window.swaggerUi.api.clientAuthorizations.add("api_key",apiKeyAuth);
+          log("added key "+key);
+        }
+      }
 
       function addApiKeyAuthorization(){
         var key=encodeURIComponent($("#input_apiKey")[0].value);

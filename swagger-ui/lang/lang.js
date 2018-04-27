@@ -53,7 +53,9 @@ var locales={
         "Finished Loading Resource Information. Rendering Swagger UI":"Finished Loading Resource Information. Rendering Swagger UI",
         "Unable to read api":"Unable to read api",
         "from path":"from path",
-        "server returned":"server returned"
+        "server returned":"server returned",
+        "Last Update Time":"Last Update Time",
+        "Developer":"Developer"
     },
     zh_CN:{
         "Warning: Deprecated":"警告：已过时",
@@ -107,6 +109,8 @@ var locales={
         "Unable to read api":"无法读取api",
         "from path":"从路径",
         "server returned":"服务器返回",
-        "CORS Tip": "<br/><p><hr/><span style='color:red;'>提示：</span>可能是因为Ajax跨域请求导致。<a target='_blank' href='http://www.sosoapi.com/pass/faq/test.htm'>查看解决方式。</a>"
+        "CORS Tip": "<br/><p><hr/><span style='color:red;'>提示：</span>可能是因为Ajax跨域请求导致。<a target='_blank' href='http://www.sosoapi.com/pass/faq/test.htm'>查看解决方式。</a>",
+        "Last Update Time":"最后更新时间",
+        "Developer":"开发者"
     }
 }

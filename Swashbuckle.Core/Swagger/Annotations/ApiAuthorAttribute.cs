@@ -25,8 +25,12 @@ namespace Swashbuckle.Swagger.Annotations
         /// <summary>
         /// 开发状态
         /// </summary>
-        public DevStatus Status { get; set; }
+        public DevStatus Status { get; set; } = DevStatus.None;
 
+        /// <summary>
+        /// 获取开发状态名
+        /// </summary>
+        /// <returns></returns>
         public string GetStatusName()
         {
             switch (Status)
@@ -37,6 +41,8 @@ namespace Swashbuckle.Swagger.Annotations
                     return "开发中";
                 case DevStatus.Finish:
                     return "开发完成";
+                case DevStatus.None:
+                    return "不显示";
                 default:
                     return string.Empty;
             }
@@ -48,6 +54,10 @@ namespace Swashbuckle.Swagger.Annotations
     /// </summary>
     public enum DevStatus
     {
+        /// <summary>
+        /// 无
+        /// </summary>
+        None,
         /// <summary>
         /// 等待开发
         /// </summary>

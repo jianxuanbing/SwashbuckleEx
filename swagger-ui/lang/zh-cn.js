@@ -3,7 +3,7 @@
 /* jshint quotmark: double */
 window.SwaggerTranslator.learn({
     "Warning: Deprecated":"警告：已过时",
-    "Implementation Notes":"实现备注",
+    "Implementation Notes":"接口说明",
     "Response Class":"响应类",
     "Status":"状态",
     "Parameters":"参数",
@@ -52,5 +52,7 @@ window.SwaggerTranslator.learn({
     "Finished Loading Resource Information. Rendering Swagger UI":"已加载资源信息。正在渲染Swagger UI",
     "Unable to read api":"无法读取api",
     "from path":"从路径",
-    "server returned":"服务器返回"
+    "server returned":"服务器返回",
+    "Last Update Time":"最后更新时间",
+    "Developer":"开发者"
 });

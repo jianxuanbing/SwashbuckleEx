@@ -24,6 +24,7 @@ namespace SwashbuckleEx.WebApiTest
             //        GlobalConfiguration.Configuration));
             //GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerSelector),
             //    new AreaHttpControllerSelector(GlobalConfiguration.Configuration));
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new SimpleCorsHandler());
         }
     }
 }

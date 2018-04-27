@@ -46,6 +46,7 @@ namespace SwashbuckleEx.WebApiTest
                     //        });
                     c.DocumentFilter<SwaggerAreasSupportDocumentFilter>();
                     c.IncludeXmlComments(string.Format("{0}/bin/SwashbuckleEx.WebApiTest.XML", AppDomain.CurrentDomain.BaseDirectory));
+                    c.ShowDeveloperInfo();
                 })
                 .EnableSwaggerUi(c =>
                 {

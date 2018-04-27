@@ -40,6 +40,11 @@ namespace Swashbuckle.Application
 
         private Func<ISwaggerProvider, ISwaggerProvider> _customProviderFactory;
 
+        /// <summary>
+        /// 是否显示开发者信息
+        /// </summary>
+        internal static bool ShowDeveloper = false;
+
         public SwaggerDocsConfig()
         {
             _versionInfoBuilder = new VersionInfoBuilder();
@@ -234,6 +239,14 @@ namespace Swashbuckle.Application
         public void CustomProvider(Func<ISwaggerProvider, ISwaggerProvider> customProviderFactory)
         {
             _customProviderFactory = customProviderFactory;
+        }
+
+        /// <summary>
+        /// 显示开发者信息
+        /// </summary>
+        public void ShowDeveloperInfo()
+        {
+            ShowDeveloper = true;
         }
 
         internal ISwaggerProvider GetSwaggerProvider(HttpRequestMessage swaggerRequest)

@@ -5,6 +5,7 @@ using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
+using Swashbuckle.Application;
 using Swashbuckle.Swagger.Annotations;
 
 namespace Swashbuckle.Swagger.XmlComments
@@ -50,15 +51,11 @@ namespace Swashbuckle.Swagger.XmlComments
             if (remarksNode != null)
                 operation.description = remarksNode.ExtractContent();
 
-            var authorInfo = apiDescription.GetControllerAndActionAttributes<ApiAuthorAttribute>().FirstOrDefault();
-            if (authorInfo != null)
-            {
-                operation.summary += $"【{authorInfo.Name},{authorInfo.Time},{authorInfo.GetStatusName()}】";
-            }
-
             ApplyParamComments(operation, methodNode, reflectedActionDescriptor.MethodInfo);
 
             ApplyResponseComments(operation, methodNode);
+
+            ApplyDeveloperInfo(operation,apiDescription);
         }
 
         private static void ApplyParamComments(Operation operation, XPathNavigator methodNode, MethodInfo method)
@@ -113,6 +110,31 @@ namespace Swashbuckle.Swagger.XmlComments
                 .FirstOrDefault();
 
             return (fromUriAttribute != null && fromUriAttribute.Name == name);
+        }
+
+        /// <summary>
+        /// 加入开发者信息
+        /// </summary>
+        /// <param name="operation"></param>
+        /// <param name="apiDescription"></param>
+        private static void ApplyDeveloperInfo(Operation operation, ApiDescription apiDescription)
+        {
+            if (!SwaggerDocsConfig.ShowDeveloper)
+            {
+                return;
+            }
+            var authorInfo = apiDescription.GetControllerAndActionAttributes<ApiAuthorAttribute>().FirstOrDefault();
+            if (authorInfo == null)
+            {
+                operation.showDevStatus = false;
+                return;
+            }
+
+            operation.developer = authorInfo.Name;
+            operation.showDevStatus = authorInfo.Status != DevStatus.None;            
+            operation.devStatus = authorInfo.Status.ToString();
+            operation.devStatusName = authorInfo.GetStatusName();
+            operation.modifyDate = authorInfo.Time;
         }
     }
 }

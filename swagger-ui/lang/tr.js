@@ -49,5 +49,7 @@ window.SwaggerTranslator.learn({
     "Finished Loading Resource Information. Rendering Swagger UI":"Kaynak baglantısı tamamlandı. Swagger UI gösterime hazırlanıyor",
     "Unable to read api":"api okunamadı",
     "from path":"yoldan",
-    "server returned":"sunucuya dönüldü"
+    "server returned":"sunucuya dönüldü",
+    "Last Update Time":"Last Update Time",
+    "Developer":"Developer"
 });

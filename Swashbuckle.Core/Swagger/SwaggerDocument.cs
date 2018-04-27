@@ -118,6 +118,9 @@ namespace Swashbuckle.Swagger
 
         public string summary { get; set; }
 
+        /// <summary>
+        /// 备注
+        /// </summary>
         public string description;
 
         public ExternalDocs externalDocs;
@@ -139,6 +142,31 @@ namespace Swashbuckle.Swagger
         public IList<IDictionary<string, IEnumerable<string>>> security;
 
         public Dictionary<string, object> vendorExtensions = new Dictionary<string, object>();
+
+        /// <summary>
+        /// 开发状态
+        /// </summary>
+        public string devStatus { get; set; }
+
+        /// <summary>
+        /// 开发状态名称
+        /// </summary>
+        public string devStatusName { get; set; }
+
+        /// <summary>
+        /// 开发者
+        /// </summary>
+        public string developer { get; set; }
+
+        /// <summary>
+        /// 修改日期
+        /// </summary>
+        public string modifyDate { get; set; }
+
+        /// <summary>
+        /// 是否显示开发状态
+        /// </summary>
+        public bool showDevStatus { get; set; }
     }
 
     public class Tag

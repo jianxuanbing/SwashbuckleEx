@@ -52,5 +52,7 @@ window.SwaggerTranslator.learn({
     "Finished Loading Resource Information. Rendering Swagger UI":"Ολοκλήρωση Φόρτωσης Πληροφορικών Πόρου. Παρουσίαση Swagger UI",
     "Unable to read api":"Αδυναμία ανάγνωσης api",
     "from path":"από το μονοπάτι",
-    "server returned":"ο εξυπηρετηρής επέστρεψε"
+    "server returned":"ο εξυπηρετηρής επέστρεψε",
+    "Last Update Time":"Last Update Time",
+    "Developer":"Developer"
 });
