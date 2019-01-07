@@ -206,6 +206,8 @@ namespace Swashbuckle.Swagger
             {
                 //忽略                
             }
+
+            result = result.OrderBy(p => p.name).ToList();
             swaggerDoc.tags = result;
         }
 
