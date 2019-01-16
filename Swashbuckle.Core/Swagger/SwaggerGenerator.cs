@@ -88,7 +88,14 @@ namespace Swashbuckle.Swagger
                         version.docPath = path;
                         if (version.version == swaggerDoc.info.version)
                         {
-                            swaggerDoc.info.docPath = path;
+                            //mt 这傻逼在循环里只修改第一条数据
+                            //这里是给路径加上虚拟地址
+                            version.docPath = string.IsNullOrWhiteSpace(swaggerDoc.basePath) ? path : (swaggerDoc.basePath + "/" + path);
+                            // swaggerDoc.info.docPath = string.IsNullOrWhiteSpace(swaggerDoc.basePath) ? path : (swaggerDoc.basePath + "/" + path);
+                        }
+                        else//mt 这里是给没有版本号的区域加上虚拟目录
+                        {
+                            version.docPath = string.IsNullOrWhiteSpace(swaggerDoc.basePath) ? path : (swaggerDoc.basePath + "/" + path);
                         }
                     }
                 }
@@ -97,13 +104,13 @@ namespace Swashbuckle.Swagger
             var keys = paths.Keys.ToList();
             SetTags(swaggerDoc, _options.ModelFilters, keys);
 
-            foreach (var filter in _options.DocumentFilters.OrderBy(p=>p))
+            foreach (var filter in _options.DocumentFilters.OrderBy(p => p))
             {
                 filter.Apply(swaggerDoc, schemaRegistry, _apiExplorer);
             }
             //todo 这里是排序的代码
             //mt 2019-01-04
-            swaggerDoc.paths = swaggerDoc.paths.OrderBy(p=>p.Key).ToDictionary(pair => pair.Key, pair => pair.Value);
+            swaggerDoc.paths = swaggerDoc.paths.OrderBy(p => p.Key).ToDictionary(pair => pair.Key, pair => pair.Value);
             return swaggerDoc;
         }
 
@@ -210,6 +217,8 @@ namespace Swashbuckle.Swagger
             {
                 //忽略                
             }
+
+            result = result.OrderBy(p => p.name).ToList();
             swaggerDoc.tags = result;
         }
 
