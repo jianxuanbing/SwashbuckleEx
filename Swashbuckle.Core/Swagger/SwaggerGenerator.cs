@@ -103,8 +103,7 @@ namespace Swashbuckle.Swagger
 
             var keys = paths.Keys.ToList();
             SetTags(swaggerDoc, _options.ModelFilters, keys);
-
-            foreach (var filter in _options.DocumentFilters.OrderBy(p => p))
+            foreach (var filter in _options.DocumentFilters.OrderBy(p=>p))
             {
                 filter.Apply(swaggerDoc, schemaRegistry, _apiExplorer);
             }
