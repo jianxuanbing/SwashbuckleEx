@@ -48,8 +48,7 @@ namespace Swashbuckle.Swagger
             _apiVersions.TryGetValue(apiVersion, out info);
             if (info == null)
                 throw new UnknownApiVersion(apiVersion);
-
-
+            /*var paths0 = GetApiDescriptionsFor(apiVersion).ToList();*/
             var paths = GetApiDescriptionsFor(apiVersion)
                 .Where(apiDesc => !(_options.IgnoreObsoleteActions && apiDesc.IsObsolete()))
                 .OrderBy(_options.GroupingKeySelector, _options.GroupingKeyComparer)
@@ -103,7 +102,7 @@ namespace Swashbuckle.Swagger
 
             var keys = paths.Keys.ToList();
             SetTags(swaggerDoc, _options.ModelFilters, keys);
-            foreach (var filter in _options.DocumentFilters.OrderBy(p=>p))
+            foreach (var filter in _options.DocumentFilters.OrderBy(p => p))
             {
                 filter.Apply(swaggerDoc, schemaRegistry, _apiExplorer);
             }
