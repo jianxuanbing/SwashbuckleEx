@@ -11,16 +11,8 @@ namespace SwashbuckleEx.WebApiTest.Areas.Admin.Controllers
     /// <summary>
     /// 后台测试 相关API
     /// </summary>
-    public class TestAController:ApiController
+    public class TestAController : ApiController
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public TestAController()
-        {
-            
-        }
-
         /// <summary>
         /// 获取后台Guid
         /// </summary>
@@ -28,12 +20,8 @@ namespace SwashbuckleEx.WebApiTest.Areas.Admin.Controllers
         /// 测试一些内容，不想将无用的东西放在接口名称当中<br/>
         /// 换行输出一下内容
         /// </remarks>
-        /// <returns></returns>
         [HttpGet]
-        public Guid GetGuid()
-        {
-            return Guid.NewGuid();
-        }
+        public Guid GetGuid() => Guid.NewGuid();
 
         /// <summary>
         /// 上传文件
@@ -42,7 +30,6 @@ namespace SwashbuckleEx.WebApiTest.Areas.Admin.Controllers
         [Upload]
         public void UploadFile()
         {
-
         }
 
         /// <summary>
@@ -52,18 +39,13 @@ namespace SwashbuckleEx.WebApiTest.Areas.Admin.Controllers
         [ApiAuthor(Name = "jian玄冰", Status = DevStatus.Wait, Time = "2018-04-28")]
         public void ApiStatus()
         {
-
         }
 
         /// <summary>
         /// 获取用户信息
         /// </summary>
-        /// <returns></returns>
         [HttpGet]
-        [SwaggerResponse(HttpStatusCode.OK,"自定义内容",Type = typeof(UserInfo))]
-        public HttpResponseMessage GetUserInfo()
-        {
-            return Request.CreateResponse(HttpStatusCode.OK, new UserInfo(), "application/json");
-        }
+        [SwaggerResponse(HttpStatusCode.OK, "自定义内容", Type = typeof(UserInfo))]
+        public HttpResponseMessage GetUserInfo() => Request.CreateResponse(HttpStatusCode.OK, new UserInfo(), "application/json");
     }
 }

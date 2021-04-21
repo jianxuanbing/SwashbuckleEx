@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Web.Http.Description;
 using System;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using System.Net.Http.Formatting;
 using System.Net.Http;
 using System.Xml.XPath;
 using Swashbuckle.Application;
