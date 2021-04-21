@@ -48,8 +48,7 @@ namespace Swashbuckle.Swagger
             _apiVersions.TryGetValue(apiVersion, out info);
             if (info == null)
                 throw new UnknownApiVersion(apiVersion);
-            
-
+            /*var paths0 = GetApiDescriptionsFor(apiVersion).ToList();*/
             var paths = GetApiDescriptionsFor(apiVersion)
                 .Where(apiDesc => !(_options.IgnoreObsoleteActions && apiDesc.IsObsolete()))
                 .OrderBy(_options.GroupingKeySelector, _options.GroupingKeyComparer)
@@ -67,10 +66,10 @@ namespace Swashbuckle.Swagger
                 schemes = (_options.Schemes != null) ? _options.Schemes.ToList() : new[] { rootUri.Scheme }.ToList(),
                 paths = paths,
                 definitions = schemaRegistry.Definitions,
-                securityDefinitions = _options.SecurityDefinitions                
+                securityDefinitions = _options.SecurityDefinitions
             };
 
-            swaggerDoc.muiltVersion=new List<Info>();
+            swaggerDoc.muiltVersion = new List<Info>();
             foreach (var version in _apiVersions)
             {
                 swaggerDoc.muiltVersion.Add(version.Value);
@@ -79,29 +78,37 @@ namespace Swashbuckle.Swagger
             if (SwaggerEnabledConfiguration.DiscoveryPaths != null &&
                 SwaggerEnabledConfiguration.DiscoveryPaths.Any())
             {
-                
+
                 foreach (var version in swaggerDoc.muiltVersion)
                 {
-                    var path = SwaggerEnabledConfiguration.DiscoveryPaths.FirstOrDefault(x=>x.Contains(version.version));
+                    var path = SwaggerEnabledConfiguration.DiscoveryPaths.FirstOrDefault(x => x.Contains(version.version));
                     if (!string.IsNullOrEmpty(path))
                     {
                         version.docPath = path;
                         if (version.version == swaggerDoc.info.version)
                         {
-                            swaggerDoc.info.docPath = path;
+                            //mt 这傻逼在循环里只修改第一条数据
+                            //这里是给路径加上虚拟地址
+                            version.docPath = string.IsNullOrWhiteSpace(swaggerDoc.basePath) ? path : (swaggerDoc.basePath + "/" + path);
+                            // swaggerDoc.info.docPath = string.IsNullOrWhiteSpace(swaggerDoc.basePath) ? path : (swaggerDoc.basePath + "/" + path);
                         }
-                    }                    
+                        else//mt 这里是给没有版本号的区域加上虚拟目录
+                        {
+                            version.docPath = string.IsNullOrWhiteSpace(swaggerDoc.basePath) ? path : (swaggerDoc.basePath + "/" + path);
+                        }
+                    }
                 }
             }
 
             var keys = paths.Keys.ToList();
-            SetTags(swaggerDoc,_options.ModelFilters,keys);
-
-            foreach(var filter in _options.DocumentFilters)
+            SetTags(swaggerDoc, _options.ModelFilters, keys);
+            foreach (var filter in _options.DocumentFilters.OrderBy(p => p))
             {
                 filter.Apply(swaggerDoc, schemaRegistry, _apiExplorer);
             }
-
+            //todo 这里是排序的代码
+            //mt 2019-01-04
+            swaggerDoc.paths = swaggerDoc.paths.OrderBy(p => p.Key).ToDictionary(pair => pair.Key, pair => pair.Value);
             return swaggerDoc;
         }
 
@@ -113,8 +120,8 @@ namespace Swashbuckle.Swagger
         /// <param name="keys"></param>
         private void SetTags(SwaggerDocument swaggerDoc, IEnumerable<IModelFilter> modelFilters, List<string> keys)
         {
-            var result=new List<Tag>();
-            var isKeys = keys != null && keys.Count > 0;            
+            var result = new List<Tag>();
+            var isKeys = keys != null && keys.Count > 0;
             try
             {
                 string memberXPath = "/doc/members/member[starts-with(@name,'T:')]";
@@ -122,7 +129,7 @@ namespace Swashbuckle.Swagger
                 {
                     if (modelFilter.XmlNavigator == null)
                     {
-                        continue;                        
+                        continue;
                     }
                     var typeNode = modelFilter.XmlNavigator.Select(memberXPath);
                     foreach (XPathNavigator item in typeNode)
@@ -131,9 +138,15 @@ namespace Swashbuckle.Swagger
                         if (summaryNode != null)
                         {
                             var name = item.GetAttribute("name", "");
+                            if (name.EndsWith("DeptController"))
+                            {
+
+                            }
                             if (!swaggerDoc.info.isDefaultRoute)
                             {
-                                if (!name.Contains("Areas") || !name.Contains("Controllers"))
+                                //第二个判断改了下
+                                //mt 2019-01-04
+                                if (!name.Contains("Areas") || !name.EndsWith("Controller"))
                                 {
                                     continue;
                                 }
@@ -153,7 +166,7 @@ namespace Swashbuckle.Swagger
                                     continue;
                                 }
                             }
-                            var nameXPath = "/doc/members/member[starts-with(@name,'M:" + name.Replace("T:", "") + "')]";                            
+                            var nameXPath = "/doc/members/member[starts-with(@name,'M:" + name.Replace("T:", "") + "')]";
                             var nameXPathNode = modelFilter.XmlNavigator.Select(nameXPath);
 
                             // 处理构造函数导致接口数量不正确问题
@@ -161,7 +174,7 @@ namespace Swashbuckle.Swagger
                                             ".#ctor')]";
                             var ctorXPathNode = modelFilter.XmlNavigator.Select(ctorXPath);
 
-                            if (name.Contains("Controllers"))
+                            if (name.Contains("Controllers") || (name.EndsWith("Controller")))
                             {
 
                                 name = name.Split('.').Last().Replace("Controller", "");
@@ -176,7 +189,6 @@ namespace Swashbuckle.Swagger
                                 }
                                 result.Add(new Tag() { name = name, description = summary });
                             }
-
                             // 只处理控制器注释标签
                             //name = name.Split('.').Last().Replace("Controller", "");
 
@@ -187,7 +199,7 @@ namespace Swashbuckle.Swagger
                             ////    summary = summary + "(" + count + ")";
                             ////}
 
-                            
+
                             //if (nameXPathNode.Count > 0)
                             //{
                             //    summary = ctorXPathNode.Count > 0
@@ -203,6 +215,8 @@ namespace Swashbuckle.Swagger
             {
                 //忽略                
             }
+
+            result = result.OrderBy(p => p.name).ToList();
             swaggerDoc.tags = result;
         }
 
@@ -283,7 +297,7 @@ namespace Swashbuckle.Swagger
                 consumes = apiDesc.Consumes().ToList(),
                 parameters = parameters.Any() ? parameters : null, // parameters can be null but not empty
                 responses = responses,
-                deprecated = apiDesc.IsObsolete() ? true : (bool?) null
+                deprecated = apiDesc.IsObsolete() ? true : (bool?)null
             };
 
             foreach (var filter in _options.OperationFilters)
@@ -316,7 +330,7 @@ namespace Swashbuckle.Swagger
             {
                 parameter.type = "string";
                 parameter.required = true;
-                return parameter; 
+                return parameter;
             }
 
             parameter.required = location == "path" || !paramDesc.ParameterDescriptor.IsOptional;

@@ -287,6 +287,7 @@ templates['operation'] = template({"1":function(container,depth0,helpers,partial
     + "/"
     + alias3((helpers.sanitize || (depth0 && depth0.sanitize) || alias2).call(alias1,(depth0 != null ? depth0.nickname : depth0),{"name":"sanitize","hash":{},"data":data}))
     + "' class=\"toggleOperation "
+      + (alias1 != null ? depth0.devStatusName == "等待开发" ? " primary " : depth0.devStatusName == "开发中" ? "waring" : depth0.devStatusName == "开发完成"? "success" :"" : "")
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.deprecated : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\">"
     + ((stack1 = (helpers.sanitize || (depth0 && depth0.sanitize) || alias2).call(alias1,(depth0 != null ? depth0.devStatusName : depth0),{"name":"sanitize","hash":{},"data":data})) != null ? stack1 : "")
