@@ -1530,3 +1530,15 @@
     border-radius: 2px;
     text-decoration: none;
 }
+
+.dev-status .primary {
+    background-color: #999;
+}
+
+.dev-status .warning {
+    background-color: #e67e22;
+}
+
+.dev-status .success {
+    background-color: #449d44;
+}

@@ -34,6 +34,7 @@ namespace Swashbuckle.Swagger
         private class WorkItem
         {
             public string SchemaId;
+            public string SchemaKey;
             public bool InProgress;
             public Schema Schema;
         }
@@ -260,16 +261,21 @@ namespace Swashbuckle.Swagger
             if (!_workItems.ContainsKey(type))
             {
                 var schemaId = _schemaIdSelector(type); 
+                var schemaKey = type.FriendlyId(true);
+                var arr = schemaKey.Split('.');
+                var shortName = string.Join(".", arr.Skip(arr.Length - 2));
                 if (_workItems.Any(entry => entry.Value.SchemaId == schemaId))
                 {
-                    var conflictingType = _workItems.First(entry => entry.Value.SchemaId == schemaId).Key;
+                    schemaId = shortName;
+                    // _workItems.Add(type, new WorkItem { SchemaId = shortName, SchemaKey = schemaKey });
+                    /*var conflictingType = _workItems.First(entry => entry.Value.SchemaId == schemaId).Key;
                     throw new InvalidOperationException(String.Format(
                         "Conflicting schemaIds: Duplicate schemaIds detected for types {0} and {1}. " +
                         "See the config setting - \"UseFullTypeNameInSchemaIds\" for a potential workaround",
-                        type.FullName, conflictingType.FullName));
+                        type.FullName, conflictingType.FullName));*/
                 }
 
-                _workItems.Add(type, new WorkItem { SchemaId = schemaId });
+                _workItems.Add(type, new WorkItem { SchemaId = schemaId,SchemaKey = schemaKey});
             }
 
             return new Schema { @ref = "#/definitions/" + _workItems[type].SchemaId };

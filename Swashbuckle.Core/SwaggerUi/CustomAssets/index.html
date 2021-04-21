@@ -123,16 +123,16 @@
           log("Unable to Load SwaggerUI");
         },
         docExpansion: swashbuckleConfig.docExpansion,
-        //模块排序
-        apisSorter: "alpha",
-        //模块内部方法排序
-        operationsSorter: "method",
+          //模块排序
+          apisSorter: null,//设置不排序 alpha
+          //模块内部方法排序
+          operationsSorter: null,  //设置不排序 method
         //方法响应排序
         operationResponsesSorter: "sortWeight",
         jsonEditor: false,
-        defaultModelRendering: 'schema',
+          defaultModelRendering: 'model',
         showRequestHeaders: false,
-        showOperationIds: false,
+          showOperationIds: false,
         //oauth2RedirectUrl: window.location.href.replace('index', 'o2c-html').split('#')[0]
       });
 
